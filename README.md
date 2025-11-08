@@ -1,2 +1,2 @@
 # Geaux-Hack-2025
-Annual Society of Asian Student Engineers (SASE) and Google Developer Student Club (GDSC) Geaux Hack 2025 Repo for Team Yisho Ay Ayo Ay
+Team Yisho Ay Ayo Ay Repo For Annual Society of Asian Scientists & Engineers (SASE) x Google Developer Student Club (GDSC) Geaux Hack Hackathon
