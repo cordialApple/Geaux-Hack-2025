@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://doh6wqa3ln7e8"]
+
+[ext_resource type="Script" uid="uid://fydffaxdjmm" path="res://scripts/tuna.gd" id="1_5gq3m"]
+[ext_resource type="Texture2D" uid="uid://dmopjhgn5km7f" path="res://assests/sealife2.png" id="1_n28kt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gq3m"]
+atlas = ExtResource("1_n28kt")
+region = Rect2(150, 1932, 875, 966)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ah8te"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gq3m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80x7j"]
+size = Vector2(232, 583)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkwlk"]
+size = Vector2(227, 584)
+
+[node name="Tuna" type="CharacterBody2D"]
+script = ExtResource("1_5gq3m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(61, 35)
+sprite_frames = SubResource("SpriteFrames_ah8te")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -7)
+shape = SubResource("RectangleShape2D_80x7j")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1, -7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2.5, -3)
+shape = SubResource("RectangleShape2D_hkwlk")

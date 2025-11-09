@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://5n2k1ixxcr68"]
+
+[ext_resource type="Script" uid="uid://boysx8jruaff5" path="res://Scenes/starfish.gd" id="1_7od30"]
+[ext_resource type="Texture2D" uid="uid://cd5quxdjk1dcj" path="res://assests/sealife.png" id="1_jtcpb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7od30"]
+atlas = ExtResource("1_jtcpb")
+region = Rect2(950, 0, 950, 966)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ruqf8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7od30")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i4q2t"]
+radius = 153.1176
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7od30"]
+radius = 149.01343
+
+[node name="Starfish" type="CharacterBody2D"]
+script = ExtResource("1_7od30")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(40, -178)
+sprite_frames = SubResource("SpriteFrames_ruqf8")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(13, 22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_i4q2t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(13, 22)
+shape = SubResource("CircleShape2D_7od30")

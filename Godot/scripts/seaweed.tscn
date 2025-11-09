@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5alllak0db72"]
+
+[ext_resource type="Script" uid="uid://bt2kqt8c5f3nt" path="res://scripts/seaweed.gd" id="1_ca43c"]
+[ext_resource type="Texture2D" uid="uid://dmopjhgn5km7f" path="res://assests/sealife2.png" id="1_inme8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ca43c"]
+atlas = ExtResource("1_inme8")
+region = Rect2(1019, 1902, 869, 951)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tt45y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ca43c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hhbmb"]
+radius = 197.20547
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bu552"]
+radius = 199.00252
+
+[node name="Seaweed" type="CharacterBody2D"]
+script = ExtResource("1_ca43c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tt45y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hhbmb")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_bu552")
