@@ -1,42 +1,197 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwesreum2ui25"]
+[gd_scene load_steps=15 format=3 uid="uid://cwesreum2ui25"]
 
-[ext_resource type="PackedScene" uid="uid://dgr38hb0h5hhh" path="res://Scenes/Lobster.tscn" id="1_ebmjs"]
-[ext_resource type="PackedScene" uid="uid://5n2k1ixxcr68" path="res://Scenes/Starfish.tscn" id="2_qxrlw"]
-[ext_resource type="PackedScene" uid="uid://dkv0ut8gvwga3" path="res://Scenes/Shrimp.tscn" id="2_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://dgr38hb0h5hhh" path="res://scripts/Lobster.tscn" id="1_ebmjs"]
+[ext_resource type="PackedScene" uid="uid://dkv0ut8gvwga3" path="res://scripts/Shrimp.tscn" id="2_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://dqb1c0mljm3kg" path="res://shark.tscn" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://doh6wqa3ln7e8" path="res://scripts/Tuna.tscn" id="5_wowpa"]
 [ext_resource type="PackedScene" uid="uid://c5alllak0db72" path="res://scripts/seaweed.tscn" id="6_i6g32"]
+[ext_resource type="Script" uid="uid://o3snrmf2rrxq" path="res://Scenes/spawner.gd" id="7_1l0tm"]
+[ext_resource type="Texture2D" uid="uid://2iib62bym8fg" path="res://assests/oceanbackground.jpeg" id="7_v158k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4fw4"]
+atlas = ExtResource("7_v158k")
+region = Rect2(0, 0, 275, 183)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ldgsr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4fw4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_v158k"]
+script/source = "extends CharacterBody2D
+
+const SPEED = 500.0
+const ROTATION_SPEED = 5.0
+const ROTATION_OFFSET = deg_to_rad(270)
+const e_out = 10.0
+
+@export var animal_tier: int = 2;
+@export var animal_name: String = \"Lobster\"
+@export var is_player: bool = false
+@export var exp_goal: int = 50
+@export var next_animal: PackedScene
+
+var current_xp: int = 0
+
+func add_xp (amount: int):
+	current_xp += amount
+	print(str(current_xp) + \"/10\" )
+	if current_xp > exp_goal:
+		evolve()
+		
+func evolve():
+	if not next_animal:
+		print(\"Max evolution reached!\")
+		return
+		
+	var new_animal = next_animal.instantiate()
+	new_animal.global_position = global_position
+	new_animal.rotation = rotation
+	
+	if \"is_player\" in new_animal:
+		new_animal.is_player = is_player
+	
+	get_parent().add_child(new_animal)
+	queue_free()
+
+func die():
+	queue_free()
+
+func handle_animal_collision(other_animal):
+	if other_animal.has_method(\"get_tier\"):
+		var other_tier = other_animal.get_tier()
+		
+		if other_tier > animal_tier:
+			die()
+		elif other_tier < animal_tier:
+			add_xp(other_animal.e_out)
+			other_animal.die()
+			
+func get_tier() -> int:
+	return animal_tier
+
+func _physics_process(delta: float) -> void:
+	if is_player:
+		var input_vector = Vector2.ZERO
+		input_vector.x = Input.get_axis(\"ui_left\", \"ui_right\")
+		input_vector.y = Input.get_axis(\"ui_up\", \"ui_down\")
+		
+		
+		
+		if input_vector.length() > 0:
+			input_vector = input_vector.normalized()
+			
+			var target_angle = input_vector.angle()
+			rotation = lerp_angle(rotation, target_angle + ROTATION_OFFSET, ROTATION_SPEED * delta) 
+			
+			var alignment = cos(rotation - (target_angle + ROTATION_OFFSET))
+			velocity = input_vector * SPEED * max(alignment, 0)
+			
+		else:
+			velocity = input_vector * SPEED
+	
+	move_and_slide()
+
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if collider and collider != self:
+			handle_animal_collision(collider)
+"
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_i6g32"]
+b = Vector2(20448, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1l0tm"]
+a = Vector2(-30, -12038)
+b = Vector2(0, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_v158k"]
+a = Vector2(9875, 5560)
+b = Vector2(9850, -5280)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_h4fw4"]
+a = Vector2(7766, -3830)
+b = Vector2(-8480, -3830)
 
 [node name="game" type="Node2D"]
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(880.99927, 237.00098)
+scale = Vector2(158.87273, 133.12569)
+sprite_frames = SubResource("SpriteFrames_ldgsr")
+
 [node name="Shrimp" parent="." instance=ExtResource("2_wrm1d")]
-position = Vector2(-810, 17)
+position = Vector2(953, -268)
 
 [node name="Lobster" parent="." instance=ExtResource("1_ebmjs")]
-position = Vector2(0, -1)
+position = Vector2(5, 1)
+script = SubResource("GDScript_v158k")
+exp_goal = 50
+next_animal = null
 
 [node name="Camera2D" type="Camera2D" parent="Lobster"]
-position = Vector2(-4, 5)
+position = Vector2(-9, 20)
 zoom = Vector2(0.27, 0.27)
 position_smoothing_enabled = true
 
-[node name="Starfish" parent="." instance=ExtResource("2_qxrlw")]
-position = Vector2(782, 26)
-
 [node name="Shark" parent="." instance=ExtResource("4_3dryh")]
-position = Vector2(-1, -1186)
+position = Vector2(-847, -2195)
 
 [node name="Tuna" parent="." instance=ExtResource("5_wowpa")]
-position = Vector2(-1621, 530)
+position = Vector2(-2893, 472)
 
 [node name="Seaweed" parent="." instance=ExtResource("6_i6g32")]
-position = Vector2(-1261, -597)
+position = Vector2(2044, -1259)
 
-[node name="Seaweed2" parent="." instance=ExtResource("6_i6g32")]
-position = Vector2(-680, 853)
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(5, 1)
+script = ExtResource("7_1l0tm")
 
-[node name="Seaweed3" parent="." instance=ExtResource("6_i6g32")]
-position = Vector2(1052, -633)
+[node name="Shark2" parent="." instance=ExtResource("4_3dryh")]
+position = Vector2(-1777, 1406)
 
-[node name="Seaweed4" parent="." instance=ExtResource("6_i6g32")]
-position = Vector2(958, 756)
+[node name="Shark3" parent="." instance=ExtResource("4_3dryh")]
+position = Vector2(1504, 1775)
+
+[node name="Shark4" parent="." instance=ExtResource("4_3dryh")]
+position = Vector2(-3179, -1949)
+
+[node name="Shark5" parent="." instance=ExtResource("4_3dryh")]
+position = Vector2(-1737, -792)
+
+[node name="Shark6" parent="." instance=ExtResource("4_3dryh")]
+position = Vector2(3736, -1159)
+
+[node name="Shark7" parent="." instance=ExtResource("4_3dryh")]
+position = Vector2(2621, -2180)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-10007, 5102)
+shape = SubResource("SegmentShape2D_i6g32")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-7860, 6283)
+shape = SubResource("SegmentShape2D_1l0tm")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(-3031, 137)
+shape = SubResource("SegmentShape2D_v158k")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(278, -1338)
+shape = SubResource("SegmentShape2D_h4fw4")
