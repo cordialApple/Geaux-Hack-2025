@@ -1,0 +1,32 @@
+[gd_scene load_steps=9 format=3 uid="uid://cuircupmtthol"]
+
+[ext_resource type="PackedScene" uid="uid://eug4tlarcjv8" path="res://Scene/ShrimpBot.tscn" id="1_aheqs"]
+[ext_resource type="Script" uid="uid://dv1ofdpkse1u4" path="res://Scripts/bot.gd" id="1_x5inr"]
+[ext_resource type="PackedScene" uid="uid://dwd40u7sjpkon" path="res://Scene/SharkBot.tscn" id="2_tf51s"]
+[ext_resource type="PackedScene" uid="uid://nms5bychje88" path="res://Scene/TunaBot.tscn" id="3_u5obq"]
+[ext_resource type="PackedScene" uid="uid://hews0s6y2laq" path="res://Scene/LobsterBot.tscn" id="4_6xwmj"]
+[ext_resource type="Script" uid="uid://den20y2ipk5dx" path="res://Scripts/SharkBot.gd" id="4_21nrb"]
+[ext_resource type="Script" uid="uid://s75037xccb6k" path="res://Scripts/TunaBot.gd" id="6_oiiys"]
+[ext_resource type="Script" uid="uid://ck72umvirn1x5" path="res://Scripts/LobsterBot.gd" id="8_bliqs"]
+
+[node name="Bots" type="Node2D"]
+script = ExtResource("1_x5inr")
+hp = null
+level = null
+runAway = null
+chase = null
+
+[node name="ShrimpBot" parent="." instance=ExtResource("1_aheqs")]
+position = Vector2(778, 965)
+
+[node name="SharkBot" parent="." instance=ExtResource("2_tf51s")]
+position = Vector2(1556, -502)
+script = ExtResource("4_21nrb")
+
+[node name="TunaBot" parent="." instance=ExtResource("3_u5obq")]
+position = Vector2(-2630, -561)
+script = ExtResource("6_oiiys")
+
+[node name="LobsterBot" parent="." instance=ExtResource("4_6xwmj")]
+position = Vector2(118, -2325)
+script = ExtResource("8_bliqs")

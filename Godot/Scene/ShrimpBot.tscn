@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://eug4tlarcjv8"]
+
+[ext_resource type="Script" uid="uid://skw86uverhg0" path="res://Scripts/ShrimpBot.gd" id="1_q6cjo"]
+[ext_resource type="Texture2D" uid="uid://dvveyucrxyhb" path="res://Assests/sealife.png" id="1_x1dld"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6cjo"]
+size = Vector2(496, 588)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(246, 227)
+script = ExtResource("1_q6cjo")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 39.909164)
+scale = Vector2(1, 1.2969432)
+polygon = PackedVector2Array(0, 3, -410, 454, 420, 461)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(28, -6)
+shape = SubResource("RectangleShape2D_q6cjo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_x1dld")
+region_enabled = true
+region_rect = Rect2(278.7516, 1278.5049, 545.13135, 651.65137)

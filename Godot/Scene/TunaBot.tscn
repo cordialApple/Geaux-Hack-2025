@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://nms5bychje88"]
+
+[ext_resource type="Texture2D" uid="uid://dvveyucrxyhb" path="res://Assests/sealife.png" id="1_5wgts"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_juhbj"]
+size = Vector2(502, 816.5)
+
+[node name="TunaBot" type="CharacterBody2D"]
+
+[node name="HurtBox" type="CollisionShape2D" parent="."]
+position = Vector2(12, -15)
+shape = SubResource("RectangleShape2D_juhbj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -6)
+texture = ExtResource("1_5wgts")
+region_enabled = true
+region_rect = Rect2(292.08325, 1960.6687, 469.94092, 751.9053)
+
+[node name="Detect" type="CollisionPolygon2D" parent="."]
+position = Vector2(1651, 356)
+polygon = PackedVector2Array(-1655, -325, -985, 394, -2344, 424)

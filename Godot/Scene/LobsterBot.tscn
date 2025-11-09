@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://hews0s6y2laq"]
+
+[ext_resource type="Texture2D" uid="uid://dvveyucrxyhb" path="res://Assests/sealife.png" id="1_6ebo2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jresn"]
+size = Vector2(631, 798)
+
+[node name="LobsterBot" type="CharacterBody2D"]
+
+[node name="HurtBox" type="CollisionShape2D" parent="."]
+position = Vector2(14, -12)
+shape = SubResource("RectangleShape2D_jresn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(43.5, -9)
+texture = ExtResource("1_6ebo2")
+region_enabled = true
+region_rect = Rect2(267.01978, 337.80627, 670.449, 814.5641)
+
+[node name="Detect" type="CollisionPolygon2D" parent="."]
+position = Vector2(33.5, 70)
+polygon = PackedVector2Array(0, -28, -512, 947, 513, 927)
