@@ -5,13 +5,13 @@ extends Node
 # Preload animal scenes with metadata
 const scenes := {
 	"lobster": {
-		"scene": preload("res://Scenes/Lobster.tscn"),
+		"scene": preload("res://scripts/Lobster.tscn"),
 		"default_spawn": 4,
 		"cap": 20,
 		"rate": 0.7
 	},
 	"shrimp": {
-		"scene": preload("res://Scenes/Shrimp.tscn"),
+		"scene": preload("res://scripts/Shrimp.tscn"),
 		"default_spawn": 6,
 		"cap": 25,
 		"rate": 0.8

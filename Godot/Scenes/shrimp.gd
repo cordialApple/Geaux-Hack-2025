@@ -4,12 +4,12 @@ const SPEED = 500.0
 const ROTATION_SPEED = 5.0
 const ROTATION_OFFSET = deg_to_rad(270)
 
-@export var animal_tier: int = 3;
-@export var animal_name: String = "Tuna"
+@export var animal_tier: int = 1;
+@export var animal_name: String = "Shrimp"
 @export var is_player: bool = false
 
 func die():
-	print("Lobster died!")
+	print("You died!")
 	queue_free()
 
 func handle_animal_collision(other_animal):
@@ -43,10 +43,27 @@ func _physics_process(delta: float) -> void:
 			
 		else:
 			velocity = input_vector * SPEED
-	
+			
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+			
+		if collider.is_in_group("hazard"):
+				die()
+		
+		
+		if collider.is_in_group("animal"):
+			handle_animal_collision(collider)
+			
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider().is_in_group("hazard"):
+			die()
+
 	move_and_slide()
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body != self:
-		handle_animal_collision(body)
+	
+func _on_killing_body_entered(body: Node2D) -> void:
+	die()
+	queue_free()# Repla
+	
+	

@@ -4,12 +4,12 @@ const SPEED = 500.0
 const ROTATION_SPEED = 5.0
 const ROTATION_OFFSET = deg_to_rad(270)
 
-@export var animal_tier: int = 3;
-@export var animal_name: String = "Tuna"
-@export var is_player: bool = false
+@export var animal_tier: int = 2;
+@export var animal_name: String = "Lobster"
+@export var is_player: bool = true
 
 func die():
-	print("Lobster died!")
+	print("Animal died!")
 	queue_free()
 
 func handle_animal_collision(other_animal):

@@ -1,7 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://dgr38hb0h5hhh"]
 
-[ext_resource type="Script" uid="uid://wjqhex4i54tb" path="res://scripts/Lobster.gd" id="1_dkxao"]
+[ext_resource type="Script" uid="uid://bmvpmsi8frmwu" path="res://scripts/Lobster.gd" id="1_qikd7"]
 [ext_resource type="Texture2D" uid="uid://cd5quxdjk1dcj" path="res://assests/sealife.png" id="2_cvnsp"]
+[ext_resource type="Script" uid="uid://bccesiglsb3j" path="res://Scenes/area_2d.gd" id="3_qikd7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
 atlas = ExtResource("2_cvnsp")
@@ -18,19 +19,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="GDScript" id="GDScript_o01aa"]
-script/source = "extends Area2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame
-	pass
-"
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_vgqql"]
 radius = 234.94041
 
@@ -38,7 +26,7 @@ radius = 234.94041
 radius = 232.05388
 
 [node name="Lobster" type="CharacterBody2D"]
-script = ExtResource("1_dkxao")
+script = ExtResource("1_qikd7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-29, -73)
@@ -46,7 +34,7 @@ sprite_frames = SubResource("SpriteFrames_6t5aa")
 animation = &"lobster"
 
 [node name="Area2D" type="Area2D" parent="."]
-script = SubResource("GDScript_o01aa")
+script = ExtResource("3_qikd7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 3)
