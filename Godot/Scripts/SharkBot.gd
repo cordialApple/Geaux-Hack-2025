@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends bot
 
 
 const SPEED = 300.0

@@ -1,4 +1,4 @@
-extends Node
+extends bot
 
 
 # Called when the node enters the scene tree for the first time.

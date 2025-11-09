@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name LobsterBot extends bot
 
 
 const SPEED = 300.0
