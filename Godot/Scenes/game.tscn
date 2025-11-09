@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwesreum2ui25"]
+
+[ext_resource type="PackedScene" uid="uid://dgr38hb0h5hhh" path="res://Scenes/Lobster.tscn" id="1_ebmjs"]
+[ext_resource type="PackedScene" uid="uid://5n2k1ixxcr68" path="res://Scenes/Starfish.tscn" id="2_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://dkv0ut8gvwga3" path="res://Scenes/Shrimp.tscn" id="2_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://dqb1c0mljm3kg" path="res://shark.tscn" id="4_3dryh"]
+[ext_resource type="PackedScene" uid="uid://doh6wqa3ln7e8" path="res://scripts/Tuna.tscn" id="5_wowpa"]
+[ext_resource type="PackedScene" uid="uid://c5alllak0db72" path="res://scripts/seaweed.tscn" id="6_i6g32"]
+
+[node name="game" type="Node2D"]
+
+[node name="Shrimp" parent="." instance=ExtResource("2_wrm1d")]
+position = Vector2(-810, 17)
+
+[node name="Lobster" parent="." instance=ExtResource("1_ebmjs")]
+position = Vector2(0, -1)
+
+[node name="Camera2D" type="Camera2D" parent="Lobster"]
+position = Vector2(-4, 5)
+zoom = Vector2(0.27, 0.27)
+position_smoothing_enabled = true
+
+[node name="Starfish" parent="." instance=ExtResource("2_qxrlw")]
+position = Vector2(782, 26)
+
+[node name="Shark" parent="." instance=ExtResource("4_3dryh")]
+position = Vector2(-1, -1186)
+
+[node name="Tuna" parent="." instance=ExtResource("5_wowpa")]
+position = Vector2(-1621, 530)
+
+[node name="Seaweed" parent="." instance=ExtResource("6_i6g32")]
+position = Vector2(-1261, -597)
+
+[node name="Seaweed2" parent="." instance=ExtResource("6_i6g32")]
+position = Vector2(-680, 853)
+
+[node name="Seaweed3" parent="." instance=ExtResource("6_i6g32")]
+position = Vector2(1052, -633)
+
+[node name="Seaweed4" parent="." instance=ExtResource("6_i6g32")]
+position = Vector2(958, 756)
