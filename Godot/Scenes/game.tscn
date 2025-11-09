@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://doh6wqa3ln7e8" path="res://scripts/Tuna.tscn" id="5_wowpa"]
 [ext_resource type="PackedScene" uid="uid://c5alllak0db72" path="res://scripts/seaweed.tscn" id="6_i6g32"]
 <<<<<<< HEAD
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://o3snrmf2rrxq" path="res://Scenes/spawner.gd" id="7_1l0tm"]
 [ext_resource type="Texture2D" uid="uid://2iib62bym8fg" path="res://assests/oceanbackground.jpeg" id="7_v158k"]
 
@@ -127,6 +128,8 @@ b = Vector2(-8480, -3830)
 [ext_resource type="PackedScene" uid="uid://dqb1c0mljm3kg" path="res://Scenes/shark.tscn" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://doh6wqa3ln7e8" path="res://Scenes/Tuna.tscn" id="5_wowpa"]
 [ext_resource type="PackedScene" uid="uid://c5alllak0db72" path="res://Scenes/seaweed.tscn" id="6_i6g32"]
+=======
+>>>>>>> parent of 5790323 (Merge pull request #5 from cordialApple/Joshua-Branch)
 =======
 >>>>>>> parent of 5790323 (Merge pull request #5 from cordialApple/Joshua-Branch)
 
