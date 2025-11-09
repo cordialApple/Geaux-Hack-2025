@@ -51,3 +51,5 @@ text = "Lobster"
 [node name="Shark" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Shark"
+
+[connection signal="pressed" from="VBoxContainer/Lobster" to="." method="_on_lobster_pressed"]
