@@ -10,6 +10,10 @@ config_version=5
 
 [application]
 
+[autoload]
+
+Global="*res://Global.gd"
+
 config/name="AnimalKingdom"
 run/main_scene="uid://cwesreum2ui25"
 config/features=PackedStringArray("4.5", "Forward Plus")
