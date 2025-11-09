@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dkv0ut8gvwga3"]
 
-[ext_resource type="Script" uid="uid://b1cwbi2doumhb" path="res://Scenes/shrimp.gd" id="1_nrtve"]
+[ext_resource type="Script" uid="uid://b1cwbi2doumhb" path="res://scripts/shrimp.gd" id="1_nrtve"]
 [ext_resource type="Texture2D" uid="uid://cd5quxdjk1dcj" path="res://assests/sealife.png" id="1_s0ij3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nrtve"]
@@ -18,11 +18,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_oosvb"]
-radius = 209.0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_nrtve"]
 radius = 206.00243
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oosvb"]
+radius = 209.0
 
 [node name="Shrimp" type="CharacterBody2D"]
 script = ExtResource("1_nrtve")
@@ -31,12 +31,14 @@ script = ExtResource("1_nrtve")
 position = Vector2(-47, 188)
 sprite_frames = SubResource("SpriteFrames_4tcb1")
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(4, -17)
+shape = SubResource("CircleShape2D_nrtve")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, -14)
 shape = SubResource("CircleShape2D_oosvb")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(4, -15)
-shape = SubResource("CircleShape2D_nrtve")
+[node name="Timer" type="Timer" parent="."]

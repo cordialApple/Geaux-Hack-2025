@@ -3,17 +3,16 @@ const SPEED = 250.0
 const ROTATION_SPEED = 3.0
 const ROTATION_OFFSET = deg_to_rad(270)
 const e_out = 50.0
-@export var animal_tier: int = 3
-@export var animal_name: String = "Tuna"
+@export var animal_tier: int = 1
+@export var animal_name: String = "Shrimp"
 @export var is_player: bool = false
 @export var spawn_area_size: Vector2 = Vector2(10000, 10000)
 @export var is_spawner: bool = true
-@export var initial_tuna: int = 0
+@export var initial_tuna: int = 10
 
 var move_direction: Vector2 = Vector2.ZERO
 var direction_change_timer: float = 0.0
 var direction_change_interval: float = 3.0
-var hungerTimer = 10
 
 func _ready():
 	position = Vector2(
@@ -43,13 +42,14 @@ func die():
 	queue_free()
 
 func spawn_new_tuna():
-	var new_tuna = duplicate()
-	new_tuna.is_spawner = false
-	new_tuna.position = Vector2(
-		randf_range(-spawn_area_size.x / 2, spawn_area_size.x / 2),
-		randf_range(-spawn_area_size.y / 2, spawn_area_size.y / 2)
-	)
-	get_parent().call_deferred("add_child", new_tuna)
+	for i in 2:
+		var new_tuna = duplicate()
+		new_tuna.is_spawner = false
+		new_tuna.position = Vector2(
+			randf_range(-spawn_area_size.x / 2, spawn_area_size.x / 2),
+			randf_range(-spawn_area_size.y / 2, spawn_area_size.y / 2)
+		)
+		get_parent().call_deferred("add_child", new_tuna)
 
 func handle_animal_collision(other_animal):
 	if other_animal.has_method("get_tier"):
@@ -64,9 +64,6 @@ func get_tier() -> int:
 	return animal_tier
 
 func _physics_process(delta: float) -> void:
-	hungerTimer -= delta
-	if hungerTimer <= 0:
-		die()
 	if not is_player:
 		direction_change_timer -= delta
 		if direction_change_timer <= 0:
@@ -98,4 +95,3 @@ func _physics_process(delta: float) -> void:
 		var collider = collision.get_collider()
 		if collider and collider != self:
 			handle_animal_collision(collider)
-			hungerTimer = 20
