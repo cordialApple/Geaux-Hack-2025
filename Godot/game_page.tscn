@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://bttqxjcn2j5bs"]
+
+[ext_resource type="Script" uid="uid://da5geaa0m36n4" path="res://game_page.gd" id="1_na78p"]
+[ext_resource type="Texture2D" uid="uid://cal3xdk4phc6j" path="res://da51803fc42b170e165487855a796fc4.jpg" id="2_5sbhm"]
+
+[node name="GamePage" type="Node2D"]
+script = ExtResource("1_na78p")
+
+[node name="Da51803Fc42b170e165487855a796Fc4" type="Sprite2D" parent="."]
+position = Vector2(22.999992, -235.99998)
+scale = Vector2(1.202, 1.3953333)
+texture = ExtResource("2_5sbhm")
+
+[node name="Name" type="Label" parent="."]
+offset_top = 2.0
+offset_right = 40.0
+offset_bottom = 25.0
+size_flags_horizontal = 4
+text = "bye"
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(24, 97)
+zoom = Vector2(2, 2)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = 56.0
+offset_right = 79.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="shrimp" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Shrimp"
+
+[node name="Tuna" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Tuna"
+
+[node name="Lobster" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Lobster"
+
+[node name="Shark" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Shark"
