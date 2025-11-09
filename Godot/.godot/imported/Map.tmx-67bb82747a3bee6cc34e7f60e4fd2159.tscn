@@ -1,0 +1,272 @@
+[gd_scene load_steps=29 format=3]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t2fis"]
+texture_region_size = Vector2i(64, 64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4kptq"]
+texture_region_size = Vector2i(64, 64)
+
+[sub_resource type="TileSet" id="TileSet_f4d7i"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_t2fis")
+sources/1 = SubResource("TileSetAtlasSource_4kptq")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thm3h"]
+size = Vector2(114, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84quk"]
+size = Vector2(110, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mrjng"]
+size = Vector2(126, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3ukd"]
+size = Vector2(116, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dlky"]
+size = Vector2(120, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xcqs0"]
+size = Vector2(440, 190)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_peiqf"]
+size = Vector2(528, 542)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66ekb"]
+size = Vector2(258, 116)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_quani"]
+size = Vector2(164, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v152q"]
+size = Vector2(130, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0t8in"]
+size = Vector2(120, 90)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmtyc"]
+size = Vector2(146, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50a0j"]
+size = Vector2(138, 102)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cuwbd"]
+size = Vector2(142, 108)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ggqe"]
+size = Vector2(140, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33mmx"]
+size = Vector2(46, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbs67"]
+size = Vector2(34, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbcc1"]
+size = Vector2(32, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tncbr"]
+size = Vector2(22, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5r0qe"]
+size = Vector2(46, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dx32"]
+size = Vector2(36, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4urd"]
+size = Vector2(30, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4n5t"]
+size = Vector2(34, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wyihc"]
+size = Vector2(36, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nv18i"]
+size = Vector2(34, 24)
+
+[node name="Map" type="Node2D"]
+
+[node name="Map Tile" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_set = SubResource("TileSet_f4d7i")
+
+[node name="Spawn_Zones" type="Node2D" parent="."]
+texture_filter = 1
+
+[node name="lobster (SB)" type="StaticBody2D" parent="Spawn_Zones"]
+position = Vector2(966, 130)
+
+[node name="lobster" type="CollisionShape2D" parent="Spawn_Zones/lobster (SB)"]
+position = Vector2(57, 29)
+shape = SubResource("RectangleShape2D_thm3h")
+
+[node name="lobster (SB)2" type="StaticBody2D" parent="Spawn_Zones"]
+position = Vector2(1668, 712)
+
+[node name="lobster" type="CollisionShape2D" parent="Spawn_Zones/lobster (SB)2"]
+position = Vector2(55, 30)
+shape = SubResource("RectangleShape2D_84quk")
+
+[node name="lobster (SB)3" type="StaticBody2D" parent="Spawn_Zones"]
+position = Vector2(192, 962)
+
+[node name="lobster" type="CollisionShape2D" parent="Spawn_Zones/lobster (SB)3"]
+position = Vector2(63, 32)
+shape = SubResource("RectangleShape2D_mrjng")
+
+[node name="lobster (SB)4" type="StaticBody2D" parent="Spawn_Zones"]
+position = Vector2(772, 1218)
+
+[node name="lobster" type="CollisionShape2D" parent="Spawn_Zones/lobster (SB)4"]
+position = Vector2(58, 32)
+shape = SubResource("RectangleShape2D_q3ukd")
+
+[node name="lobster (SB)5" type="StaticBody2D" parent="Spawn_Zones"]
+position = Vector2(1537.52, 1472.97)
+
+[node name="lobster" type="CollisionShape2D" parent="Spawn_Zones/lobster (SB)5"]
+position = Vector2(60, 30)
+rotation = 6.2670584
+shape = SubResource("RectangleShape2D_4dlky")
+
+[node name="shark (SB)" type="StaticBody2D" parent="Spawn_Zones"]
+position = Vector2(148, 1780)
+
+[node name="shark" type="CollisionShape2D" parent="Spawn_Zones/shark (SB)"]
+position = Vector2(220, 95)
+shape = SubResource("RectangleShape2D_xcqs0")
+
+[node name="tuna (SB)" type="StaticBody2D" parent="Spawn_Zones"]
+position = Vector2(1084, 442)
+
+[node name="tuna" type="CollisionShape2D" parent="Spawn_Zones/tuna (SB)"]
+position = Vector2(264, 271)
+shape = SubResource("RectangleShape2D_peiqf")
+
+[node name="shrimp (SB)" type="StaticBody2D" parent="Spawn_Zones"]
+position = Vector2(652, 608)
+
+[node name="shrimp" type="CollisionShape2D" parent="Spawn_Zones/shrimp (SB)"]
+position = Vector2(129, 58)
+shape = SubResource("RectangleShape2D_66ekb")
+
+[node name="shrimp (SB)2" type="StaticBody2D" parent="Spawn_Zones"]
+position = Vector2(328, 232)
+
+[node name="shrimp" type="CollisionShape2D" parent="Spawn_Zones/shrimp (SB)2"]
+position = Vector2(82, 53)
+shape = SubResource("RectangleShape2D_quani")
+
+[node name="shrimp (SB)3" type="StaticBody2D" parent="Spawn_Zones"]
+position = Vector2(666, 872)
+
+[node name="shrimp" type="CollisionShape2D" parent="Spawn_Zones/shrimp (SB)3"]
+position = Vector2(65, 53)
+shape = SubResource("RectangleShape2D_v152q")
+
+[node name="shrimp (SB)4" type="StaticBody2D" parent="Spawn_Zones"]
+position = Vector2(862, 810)
+
+[node name="shrimp" type="CollisionShape2D" parent="Spawn_Zones/shrimp (SB)4"]
+position = Vector2(60, 45)
+shape = SubResource("RectangleShape2D_0t8in")
+
+[node name="shrimp (SB)5" type="StaticBody2D" parent="Spawn_Zones"]
+position = Vector2(1548, 166)
+
+[node name="shrimp" type="CollisionShape2D" parent="Spawn_Zones/shrimp (SB)5"]
+position = Vector2(73, 53)
+shape = SubResource("RectangleShape2D_nmtyc")
+
+[node name="shrimp (SB)6" type="StaticBody2D" parent="Spawn_Zones"]
+position = Vector2(1414, 1130)
+
+[node name="shrimp" type="CollisionShape2D" parent="Spawn_Zones/shrimp (SB)6"]
+position = Vector2(69, 51)
+shape = SubResource("RectangleShape2D_50a0j")
+
+[node name="shrimp (SB)7" type="StaticBody2D" parent="Spawn_Zones"]
+position = Vector2(398, 1380)
+
+[node name="shrimp" type="CollisionShape2D" parent="Spawn_Zones/shrimp (SB)7"]
+position = Vector2(71, 54)
+shape = SubResource("RectangleShape2D_cuwbd")
+
+[node name="shrimp (SB)8" type="StaticBody2D" parent="Spawn_Zones"]
+position = Vector2(1106, 1628)
+
+[node name="shrimp" type="CollisionShape2D" parent="Spawn_Zones/shrimp (SB)8"]
+position = Vector2(70, 56)
+shape = SubResource("RectangleShape2D_5ggqe")
+
+[node name="seaweed (SB)" type="StaticBody2D" parent="Spawn_Zones"]
+position = Vector2(448, 316)
+
+[node name="seaweed" type="CollisionShape2D" parent="Spawn_Zones/seaweed (SB)"]
+position = Vector2(23, 19)
+shape = SubResource("RectangleShape2D_33mmx")
+
+[node name="seaweed (SB)2" type="StaticBody2D" parent="Spawn_Zones"]
+position = Vector2(1672, 262)
+
+[node name="seaweed" type="CollisionShape2D" parent="Spawn_Zones/seaweed (SB)2"]
+position = Vector2(17, 10)
+shape = SubResource("RectangleShape2D_wbs67")
+
+[node name="seaweed (SB)3" type="StaticBody2D" parent="Spawn_Zones"]
+position = Vector2(776, 694)
+
+[node name="seaweed" type="CollisionShape2D" parent="Spawn_Zones/seaweed (SB)3"]
+position = Vector2(16, 10)
+shape = SubResource("RectangleShape2D_xbcc1")
+
+[node name="seaweed (SB)4" type="StaticBody2D" parent="Spawn_Zones"]
+position = Vector2(666, 702)
+
+[node name="seaweed" type="CollisionShape2D" parent="Spawn_Zones/seaweed (SB)4"]
+position = Vector2(11, 7)
+shape = SubResource("RectangleShape2D_tncbr")
+
+[node name="seaweed (SB)5" type="StaticBody2D" parent="Spawn_Zones"]
+position = Vector2(886, 702)
+
+[node name="seaweed" type="CollisionShape2D" parent="Spawn_Zones/seaweed (SB)5"]
+position = Vector2(23, 12)
+shape = SubResource("RectangleShape2D_5r0qe")
+
+[node name="seaweed (SB)6" type="StaticBody2D" parent="Spawn_Zones"]
+position = Vector2(964, 900)
+
+[node name="seaweed" type="CollisionShape2D" parent="Spawn_Zones/seaweed (SB)6"]
+position = Vector2(18, 12)
+shape = SubResource("RectangleShape2D_4dx32")
+
+[node name="seaweed (SB)7" type="StaticBody2D" parent="Spawn_Zones"]
+position = Vector2(772, 972)
+
+[node name="seaweed" type="CollisionShape2D" parent="Spawn_Zones/seaweed (SB)7"]
+position = Vector2(15, 10)
+shape = SubResource("RectangleShape2D_i4urd")
+
+[node name="seaweed (SB)8" type="StaticBody2D" parent="Spawn_Zones"]
+position = Vector2(1552, 1226)
+
+[node name="seaweed" type="CollisionShape2D" parent="Spawn_Zones/seaweed (SB)8"]
+position = Vector2(17, 10)
+shape = SubResource("RectangleShape2D_g4n5t")
+
+[node name="seaweed (SB)9" type="StaticBody2D" parent="Spawn_Zones"]
+position = Vector2(1222, 1736)
+
+[node name="seaweed" type="CollisionShape2D" parent="Spawn_Zones/seaweed (SB)9"]
+position = Vector2(18, 11)
+shape = SubResource("RectangleShape2D_wyihc")
+
+[node name="seaweed (SB)10" type="StaticBody2D" parent="Spawn_Zones"]
+position = Vector2(522, 1480)
+
+[node name="seaweed" type="CollisionShape2D" parent="Spawn_Zones/seaweed (SB)10"]
+position = Vector2(17, 12)
+shape = SubResource("RectangleShape2D_nv18i")
