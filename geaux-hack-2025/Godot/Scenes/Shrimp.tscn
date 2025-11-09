@@ -1,7 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://dkv0ut8gvwga3"]
 
-[ext_resource type="Script" uid="uid://b1cwbi2doumhb" path="res://Scenes/shrimp.gd" id="1_nrtve"]
+[ext_resource type="Script" uid="uid://b1cwbi2doumhb" path="res://scripts/shrimp.gd" id="1_nrtve"]
 [ext_resource type="Texture2D" uid="uid://cd5quxdjk1dcj" path="res://assests/sealife.png" id="1_s0ij3"]
+
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nrtve"]
 atlas = ExtResource("1_s0ij3")

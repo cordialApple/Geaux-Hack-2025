@@ -1,7 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://5n2k1ixxcr68"]
 
-[ext_resource type="Script" uid="uid://boysx8jruaff5" path="res://Scenes/starfish.gd" id="1_7od30"]
+[ext_resource type="Script" uid="uid://boysx8jruaff5" path="res://scripts/starfish.gd" id="1_7od30"]
 [ext_resource type="Texture2D" uid="uid://cd5quxdjk1dcj" path="res://assests/sealife.png" id="1_jtcpb"]
+
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7od30"]
 atlas = ExtResource("1_jtcpb")

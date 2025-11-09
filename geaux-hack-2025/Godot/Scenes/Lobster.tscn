@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bmvpmsi8frmwu" path="res://scripts/Lobster.gd" id="1_qikd7"]
 [ext_resource type="Texture2D" uid="uid://cd5quxdjk1dcj" path="res://assests/sealife.png" id="2_cvnsp"]
-[ext_resource type="Script" uid="uid://bccesiglsb3j" path="res://Scenes/area_2d.gd" id="3_qikd7"]
+[ext_resource type="Script" uid="uid://bccesiglsb3j" path="res://scripts/area_2d.gd" id="3_qikd7"]
+
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
 atlas = ExtResource("2_cvnsp")
