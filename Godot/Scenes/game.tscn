@@ -1,112 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwesreum2ui25"]
+[gd_scene load_steps=11 format=3 uid="uid://cwesreum2ui25"]
 
 [ext_resource type="PackedScene" uid="uid://dgr38hb0h5hhh" path="res://Scenes/Lobster.tscn" id="1_ebmjs"]
 [ext_resource type="PackedScene" uid="uid://5n2k1ixxcr68" path="res://Scenes/Starfish.tscn" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://dkv0ut8gvwga3" path="res://Scenes/Shrimp.tscn" id="2_wrm1d"]
-[ext_resource type="PackedScene" uid="uid://dqb1c0mljm3kg" path="res://shark.tscn" id="4_3dryh"]
-[ext_resource type="PackedScene" uid="uid://doh6wqa3ln7e8" path="res://scripts/Tuna.tscn" id="5_wowpa"]
-[ext_resource type="PackedScene" uid="uid://c5alllak0db72" path="res://scripts/seaweed.tscn" id="6_i6g32"]
-<<<<<<< HEAD
-<<<<<<< HEAD
-[ext_resource type="Script" uid="uid://o3snrmf2rrxq" path="res://Scenes/spawner.gd" id="7_1l0tm"]
-[ext_resource type="Texture2D" uid="uid://2iib62bym8fg" path="res://assests/oceanbackground.jpeg" id="7_v158k"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h4fw4"]
-atlas = ExtResource("7_v158k")
-region = Rect2(0, 0, 275, 183)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ldgsr"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h4fw4")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="GDScript" id="GDScript_v158k"]
-script/source = "extends CharacterBody2D
-
-const SPEED = 500.0
-const ROTATION_SPEED = 5.0
-const ROTATION_OFFSET = deg_to_rad(270)
-const e_out = 10.0
-
-@export var animal_tier: int = 2;
-@export var animal_name: String = \"Lobster\"
-@export var is_player: bool = false
-@export var exp_goal: int = 50
-@export var next_animal: PackedScene
-
-var current_xp: int = 0
-
-func add_xp (amount: int):
-	current_xp += amount
-	print(str(current_xp) + \"/10\" )
-	if current_xp > exp_goal:
-		evolve()
-		
-func evolve():
-	if not next_animal:
-		print(\"Max evolution reached!\")
-		return
-		
-	var new_animal = next_animal.instantiate()
-	new_animal.global_position = global_position
-	new_animal.rotation = rotation
-	
-	if \"is_player\" in new_animal:
-		new_animal.is_player = is_player
-	
-	get_parent().add_child(new_animal)
-	queue_free()
-
-func die():
-	queue_free()
-
-func handle_animal_collision(other_animal):
-	if other_animal.has_method(\"get_tier\"):
-		var other_tier = other_animal.get_tier()
-		
-		if other_tier > animal_tier:
-			die()
-		elif other_tier < animal_tier:
-			add_xp(other_animal.e_out)
-			other_animal.die()
-			
-func get_tier() -> int:
-	return animal_tier
-
-func _physics_process(delta: float) -> void:
-	if is_player:
-		var input_vector = Vector2.ZERO
-		input_vector.x = Input.get_axis(\"ui_left\", \"ui_right\")
-		input_vector.y = Input.get_axis(\"ui_up\", \"ui_down\")
-		
-		
-		
-		if input_vector.length() > 0:
-			input_vector = input_vector.normalized()
-			
-			var target_angle = input_vector.angle()
-			rotation = lerp_angle(rotation, target_angle + ROTATION_OFFSET, ROTATION_SPEED * delta) 
-			
-			var alignment = cos(rotation - (target_angle + ROTATION_OFFSET))
-			velocity = input_vector * SPEED * max(alignment, 0)
-			
-		else:
-			velocity = input_vector * SPEED
-	
-	move_and_slide()
-
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		var collider = collision.get_collider()
-		if collider and collider != self:
-			handle_animal_collision(collider)
-"
+[ext_resource type="PackedScene" uid="uid://dqb1c0mljm3kg" path="res://Scenes/shark.tscn" id="4_3dryh"]
+[ext_resource type="PackedScene" uid="uid://doh6wqa3ln7e8" path="res://Scenes/Tuna.tscn" id="5_wowpa"]
+[ext_resource type="PackedScene" uid="uid://c5alllak0db72" path="res://Scenes/seaweed.tscn" id="6_i6g32"]
+[ext_resource type="Script" uid="uid://divihqauw8rpr" path="res://scripts/SpawnManager.gd" id="7_1l0tm"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_i6g32"]
 b = Vector2(20448, 0)
@@ -122,18 +22,11 @@ b = Vector2(9850, -5280)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_h4fw4"]
 a = Vector2(7766, -3830)
 b = Vector2(-8480, -3830)
-[ext_resource type="PackedScene" uid="uid://dgr38hb0h5hhh" path="res://Scenes/Lobster.tscn" id="1_ebmjs"]
-[ext_resource type="PackedScene" uid="uid://5n2k1ixxcr68" path="res://Scenes/Starfish.tscn" id="2_qxrlw"]
-[ext_resource type="PackedScene" uid="uid://dkv0ut8gvwga3" path="res://Scenes/Shrimp.tscn" id="2_wrm1d"]
-[ext_resource type="PackedScene" uid="uid://dqb1c0mljm3kg" path="res://Scenes/shark.tscn" id="4_3dryh"]
-[ext_resource type="PackedScene" uid="uid://doh6wqa3ln7e8" path="res://Scenes/Tuna.tscn" id="5_wowpa"]
-[ext_resource type="PackedScene" uid="uid://c5alllak0db72" path="res://Scenes/seaweed.tscn" id="6_i6g32"]
-=======
->>>>>>> parent of 5790323 (Merge pull request #5 from cordialApple/Joshua-Branch)
-=======
->>>>>>> parent of 5790323 (Merge pull request #5 from cordialApple/Joshua-Branch)
 
 [node name="game" type="Node2D"]
+
+[node name="SpawnManager" type="Node" parent="."]
+script = ExtResource("7_1l0tm")
 
 [node name="Shrimp" parent="." instance=ExtResource("2_wrm1d")]
 position = Vector2(-810, 17)

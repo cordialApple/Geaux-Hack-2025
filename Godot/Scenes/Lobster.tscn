@@ -27,6 +27,9 @@ radius = 232.05388
 
 [node name="Lobster" type="CharacterBody2D"]
 script = ExtResource("1_qikd7")
+animal_tier = 2
+animal_name = "Lobster"
+is_player = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-29, -73)

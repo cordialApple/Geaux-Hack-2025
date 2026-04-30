@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://5n2k1ixxcr68"]
 
-[ext_resource type="Script" uid="uid://boysx8jruaff5" path="res://Scenes/starfish.gd" id="1_7od30"]
+[ext_resource type="Script" uid="uid://boysx8jruaff5" path="res://scripts/starfish.gd" id="1_7od30"]
 [ext_resource type="Texture2D" uid="uid://cd5quxdjk1dcj" path="res://assests/sealife.png" id="1_jtcpb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7od30"]
@@ -26,6 +26,10 @@ radius = 149.01343
 
 [node name="Starfish" type="CharacterBody2D"]
 script = ExtResource("1_7od30")
+animal_tier = 0
+animal_name = "Starfish"
+speed = 150.0
+detection_radius = 400.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(40, -178)
@@ -40,3 +44,5 @@ shape = SubResource("CircleShape2D_i4q2t")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(13, 22)
 shape = SubResource("CircleShape2D_7od30")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

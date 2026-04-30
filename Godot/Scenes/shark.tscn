@@ -26,6 +26,10 @@ size = Vector2(200, 559)
 
 [node name="Shark" type="CharacterBody2D"]
 script = ExtResource("1_wi2lo")
+animal_tier = 4
+animal_name = "Shark"
+speed = 600.0
+detection_radius = 1200.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tnuis")
@@ -39,3 +43,5 @@ shape = SubResource("RectangleShape2D_r23qd")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(2, 55.5)
 shape = SubResource("RectangleShape2D_tnuis")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -26,6 +26,10 @@ radius = 199.00252
 
 [node name="Seaweed" type="CharacterBody2D"]
 script = ExtResource("1_ca43c")
+animal_tier = 0
+animal_name = "Seaweed"
+speed = 50.0
+detection_radius = 300.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tt45y")
@@ -37,3 +41,5 @@ shape = SubResource("CircleShape2D_hhbmb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_bu552")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

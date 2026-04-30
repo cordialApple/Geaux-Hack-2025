@@ -10,16 +10,15 @@ config_version=5
 
 [application]
 
+config/name="AnimalKingdom"
 run/main_scene="uid://ciiushhpiytw6"
-config/features=PackedStringArray("4.5")
+config/features=PackedStringArray("4.5", "Forward Plus")
+config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://Global.gd"
-config/name="AnimalKingdom"
-run/main_scene="uid://cwesreum2ui25"
-config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+Lobby="*res://scripts/start_game.gd"
 
 [editor_plugins]
 
